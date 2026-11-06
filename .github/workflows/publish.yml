@@ -1,0 +1,70 @@
+name: Publish Gpk release
+on:
+  push:
+    branches: [main]
+    paths: ['releases/current.json', '.github/workflows/publish.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: gpk-release
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'trgiang1008/gpk-releases'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Assemble and verify public Gpk package
+        env:
+          REPOSITORY: ${{ github.repository }}
+          COMMIT: ${{ github.sha }}
+        run: |
+          python3 <<'PY'
+          import os,json,hashlib,urllib.request,zipfile,re
+          from pathlib import Path
+          base='https://raw.githubusercontent.com/'+os.environ['REPOSITORY']+'/'+os.environ['COMMIT']+'/'
+          def get(path): return urllib.request.urlopen(base+path,timeout=90).read()
+          m=json.loads(get('releases/current.json'))
+          assert m['product']=='Gpk' and re.fullmatch(r'[1-9][0-9]*\.[0-9]+\.[0-9]+',m['version'])
+          version=m['version']; asset='Gpk-v'+version+'.zip'
+          assert m['asset']==asset and 0<m['bytes']<=128*1024*1024
+          with open(asset,'wb') as output:
+            for i,part in enumerate(m['parts']):
+              assert part['path']=='packages/v'+version+'/part-'+str(i).zfill(3)
+              b=get(part['path']); assert hashlib.sha256(b).hexdigest()==part['sha256']
+              output.write(b)
+          data=Path(asset).read_bytes()
+          assert len(data)==m['bytes'] and hashlib.sha256(data).hexdigest()==m['sha256']
+          allowed={'Gpk.exe','GpkCore.exe','GpkUpdater.exe','Frida.dll','Gpk.Actions.dll','vcruntime140.dll','Gpk.ico','GpkCore.exe.config','Gpk.exe.config','VERSION.txt','HUONG DAN.txt','Chay Gpk.cmd'}
+          with zipfile.ZipFile(asset) as z:
+            assert len(z.namelist())==13 and set(z.namelist())==allowed|{'package-manifest.json'}
+            assert z.testzip() is None
+            manifest=json.loads(z.read('package-manifest.json'))
+            assert manifest['product']=='Gpk' and manifest['version']==version
+            assert len(manifest['files'])==len(allowed) and {f['File'] for f in manifest['files']}==allowed
+            for f in manifest['files']:
+              b=z.read(f['File'])
+              assert len(b)==f['Bytes'] and hashlib.sha256(b).hexdigest()==f['Sha256']
+            assert z.read('VERSION.txt').decode('utf-8-sig').strip()==version
+          Path(asset+'.sha256').write_text(m['sha256']+'  '+asset+'\n')
+          Path('RELEASE_NOTES.md').write_bytes(get('releases/v'+version+'/notes.md'))
+          with open(os.environ['GITHUB_ENV'],'a') as output:
+            output.write('GPK_TAG=v'+version+'\nGPK_ASSET='+asset+'\n')
+          PY
+      - name: Publish verified Gpk release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if gh release view "$GPK_TAG" >/dev/null 2>&1; then
+            if [ "$(gh release view "$GPK_TAG" --json isDraft --jq .isDraft)" != "true" ]; then
+              echo "Release already published; refusing overwrite."
+              exit 0
+            fi
+          else
+            gh release create "$GPK_TAG" --draft --title "Gpk ${GPK_TAG#v}" --notes-file RELEASE_NOTES.md --target "$GITHUB_SHA"
+          fi
+          gh release upload "$GPK_TAG" "$GPK_ASSET" "$GPK_ASSET.sha256" --clobber
+          gh release edit "$GPK_TAG" --draft=false --latest
