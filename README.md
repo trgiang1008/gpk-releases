@@ -1,9 +1,12 @@
 # Gpk releases
 
-Gpk: https://github.com/trgiang1008/gpk-releases/releases/latest
+| Auto | Kênh cập nhật riêng |
+| --- | --- |
+| Gpk | [gpk-releases](https://github.com/trgiang1008/gpk-releases/releases/latest) |
+| PingPK | [pingpk-releases](https://github.com/trgiang1008/pingpk-releases/releases/latest) |
 
-PingPK: https://github.com/trgiang1008/pingpk-releases/releases/latest
+Gpk từ 1.0.3 tự kiểm tra cập nhật và hỏi trước khi nâng cấp. Bản trước cần tải và mở 1.0.3 thủ công một lần. Chỉ tải gói trong Releases; thư mục packages dùng cho workflow phát hành.
 
-Hai auto có repository, tên gói và LIC riêng. Gpk từ 1.0.2 tự kiểm tra cập nhật và hỏi trước khi nâng cấp. Các bản trước cần tải thủ công một lần.
+Gpk chỉ nhận Gpk-vX.Y.Z.zip từ repository Gpk; PingPK tiếp tục dùng PingPK-vX.Y.Z.zip từ repository PingPK. LIC tách sản phẩm.
 
-Chỉ tải gói trong Releases. Thư mục packages chứa các phần nhị phân dùng cho workflow phát hành, không dùng để chạy trực tiếp.
+1.0.2 đã rút khỏi kênh ổn định do sai mã kiểm tra helper. Dùng 1.0.3 trở lên.

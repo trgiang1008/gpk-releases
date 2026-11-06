@@ -1,4 +1,4 @@
-Gpk 1.0.2
+Gpk 1.0.3
 
 - Thêm tự kiểm tra cập nhật sau khi mở, hỏi trước khi tải/cài và tự mở lại Gpk.
 - Kênh Gpk riêng: trgiang1008/gpk-releases. PingPK giữ nguyên trgiang1008/pingpk-releases.
@@ -9,4 +9,6 @@ Kiểm tra: build, 23 updater fixture checks, cài gói thật lên bản 1.0.1 
 
 Giới hạn: chưa kiểm thử chiến đấu/bơm máu trong game; chưa audit đầy đủ native/VM. Windows Defender trên máy build không trả trạng thái hoạt động nên chưa có kết quả quét AV. EXE chưa ký Authenticode. SHA-256 phụ thuộc nguồn GitHub tin cậy.
 
-Bản trước 1.0.2 cần tải ZIP và mở bản mới thủ công một lần. Không chạy hai auto trên cùng nhân vật.
+Bản trước 1.0.3 cần tải ZIP và mở bản mới thủ công một lần. Không chạy hai auto trên cùng nhân vật.
+
+Bản 1.0.2 đã rút khỏi kênh ổn định do helper pin không khớp. 1.0.3 đã kiểm tra trực tiếp core/helper khớp SHA-256 và core trong gói bằng đúng bản build hoàn chỉnh; quy trình đóng gói giờ chặn lỗi này.

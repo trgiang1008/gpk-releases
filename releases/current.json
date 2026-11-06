@@ -1,77 +1,45 @@
 {
   "product": "Gpk",
-  "version": "1.0.2",
-  "asset": "Gpk-v1.0.2.zip",
-  "bytes": 34773542,
-  "sha256": "58e04f501db6871f725234f7d3480368c17feb8917b469764d8a537e2b252d8b",
+  "version": "1.0.3",
+  "asset": "Gpk-v1.0.3.zip",
+  "bytes": 34773536,
+  "sha256": "912ecc2ee399ad1c612b7b75eec17132a8e611a5eb1d5265e2e98155e35dfaa0",
   "parts": [
     {
-      "path": "packages/v1.0.2/part-000",
-      "sha256": "959235dcfe9dee2c3c31b0f490f70ea7c3fd95942ddfd729bfffae9043cb1017"
+      "path": "packages/v1.0.3/part-000",
+      "sha256": "8c78b88546daef9fff8fe583afde3741200f9494b63d754c82de756ae5dcc6d4"
     },
     {
-      "path": "packages/v1.0.2/part-001",
-      "sha256": "4c7b956922bca54baa9b60809bfc7d54b3ea4bdc0c3cccbf5524f7052fe9a4df"
+      "path": "packages/v1.0.3/part-001",
+      "sha256": "959176810ff969daa9437346ac5ebd4a3a271de71876779b4dd6551680f3226d"
     },
     {
-      "path": "packages/v1.0.2/part-002",
-      "sha256": "3e1f7f48fefea21efbd812d0535c7f858828b8513c594927e2704de2a3211aeb"
+      "path": "packages/v1.0.3/part-002",
+      "sha256": "5929e9acab2e9a7f81e6d4a816af2afd5fcc06454a4b3f60e77bcb1f6df5c6ad"
     },
     {
-      "path": "packages/v1.0.2/part-003",
-      "sha256": "3a4024a547b4f0a7208e10db333a351f7500b0c0ef32491c2dcdd8d7a7f11e3d"
+      "path": "packages/v1.0.3/part-003",
+      "sha256": "9edefa506357171a3c80f2563d5ff99ca1091cbc70b67919b9656294b44f9924"
     },
     {
-      "path": "packages/v1.0.2/part-004",
-      "sha256": "4f1d0b646f11c182a0053cfc3a8897df40cc591414a0ddbca46f6bacb54b1f3d"
+      "path": "packages/v1.0.3/part-004",
+      "sha256": "3394409b22ae8610f4a1831a2d661927e93b07771bd5e7613c86aabd90a69940"
     },
     {
-      "path": "packages/v1.0.2/part-005",
-      "sha256": "450bcb9350b60250ee6c0b7cf9b8aa128c7132e4a21a3c59ab1b621b92c00812"
+      "path": "packages/v1.0.3/part-005",
+      "sha256": "a54943f67baf7a0d377b6a6e682c9faeb359fcc0517ef7169bd858f6325c81c5"
     },
     {
-      "path": "packages/v1.0.2/part-006",
-      "sha256": "c700029cdca62b79eb3462fd91f82ee83e624b1e4170a5414afb575afaf2f5f7"
+      "path": "packages/v1.0.3/part-006",
+      "sha256": "1f21a183d12aca38f6e3894036b5836afcfb94ce930387fb54f0cf0992c3a9a2"
     },
     {
-      "path": "packages/v1.0.2/part-007",
-      "sha256": "b5865d6fb027c69f33306d88ca8a565e2fae0938707ff81557204c04f2927394"
+      "path": "packages/v1.0.3/part-007",
+      "sha256": "19a8eb5613e2622a69103777ffc90b045e9bc0a6e104b261e337f1337281e836"
     },
     {
-      "path": "packages/v1.0.2/part-008",
-      "sha256": "2e4c17642e8c767d9a448adecd7752583b508203d4517cba4dd4fcc8511079ad"
-    },
-    {
-      "path": "packages/v1.0.2/part-009",
-      "sha256": "f6c37abb89ba4f4a6d7429ee34abf0b961bcebdf3f211dd90f17a1eb4a1a9a2f"
-    },
-    {
-      "path": "packages/v1.0.2/part-010",
-      "sha256": "d043a0c3821a177c0acc6a6773b5230f7d3eee163f65dd9c048f9f8587d9bfa3"
-    },
-    {
-      "path": "packages/v1.0.2/part-011",
-      "sha256": "3c983de478caf8580865fd98aab02bea04c9a2cf3101e624298e205d20622848"
-    },
-    {
-      "path": "packages/v1.0.2/part-012",
-      "sha256": "c731229fadf2fe429ab436da11c99f70822e66f06b208f2f2d6f872c80cd8d26"
-    },
-    {
-      "path": "packages/v1.0.2/part-013",
-      "sha256": "4334364b4dc9bf36755d908990c2c039d790499e9f90943c9a2ab801c31e70ed"
-    },
-    {
-      "path": "packages/v1.0.2/part-014",
-      "sha256": "8f5a95f76895e860c8129bb4a1342c229f53580443d41e4f60dd2ef4b9e0f8a6"
-    },
-    {
-      "path": "packages/v1.0.2/part-015",
-      "sha256": "217d4867027d5940aa2d23f9b0478f4221b765a6cd5c616a714631d103369d05"
-    },
-    {
-      "path": "packages/v1.0.2/part-016",
-      "sha256": "d82f3970ad451bb01c528237fd4b668b0ec678e02f7b7b1027cfbc5ce1d52622"
+      "path": "packages/v1.0.3/part-008",
+      "sha256": "4c7f3f46c3330e168706925754aa580473918252305e25e22dd9612685858e63"
     }
   ]
 }
